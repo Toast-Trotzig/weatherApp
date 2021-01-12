@@ -1,0 +1,74 @@
+<div class="weather-cards">
+  <mat-card class="weather-card"
+            [routerLink]="[stockholm.geometry.coordinates[0][0], stockholm.geometry.coordinates[0][1]]">
+    <a>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="place">Stockholm</span>
+        </mat-card-title>
+        <span>{{stocktom.validTime | date: 'EEEE M/d, H:mm'}}</span>
+      </mat-card-header>
+      <mat-card-content>
+        <span class="degrees">
+        <mat-icon class="weathericon" svgIcon="{{stocktom.parameters[18].values[0]}}"></mat-icon>
+          {{stocktom.parameters[12].values[0]}} °</span>
+        <span class="wind">Vindstyrka: {{stocktom.parameters[17].values[0]}} m/s
+        <mat-icon class="diricon" svgIcon="28"
+                  style="transform: rotate({{stockholm.timeSeries[0].parameters[16].values[0]}}deg)"></mat-icon> </span>
+      </mat-card-content>
+      <mat-card-footer><span class="footer">Prognos -></span></mat-card-footer>
+    </a>
+  </mat-card>
+  <mat-card class="weather-card"
+            [routerLink]="[goteborg.geometry.coordinates[0][0], goteborg.geometry.coordinates[0][1]]">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="place">Göteborg</span>
+      </mat-card-title>
+      <span>{{gotetom.validTime | date: 'EEEE M/d, H:mm'}}</span>
+    </mat-card-header>
+    <mat-card-content>
+        <span class="degrees">
+        <mat-icon class="weathericon" svgIcon="{{gotetom.parameters[18].values[0]}}"></mat-icon>
+          {{gotetom.parameters[12].values[0]}} °</span>
+      <span class="wind">Vindstyrka: {{gotetom.parameters[17].values[0]}} m/s
+        <mat-icon class="diricon" svgIcon="28"
+                  style="transform: rotate({{gotetom.parameters[16].values[0]}}deg)"></mat-icon> </span>
+    </mat-card-content>
+    <mat-card-footer><span class="footer">Prognos -></span></mat-card-footer>
+  </mat-card>
+  <mat-card class="weather-card" [routerLink]="[malmo.geometry.coordinates[0][0], malmo.geometry.coordinates[0][1]]">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="place">Malmö</span>
+      </mat-card-title>
+      <span>{{maltom.validTime | date: 'EEEE M/d, H:mm'}}</span>
+    </mat-card-header>
+    <mat-card-content>
+        <span class="degrees">
+        <mat-icon class="weathericon" svgIcon="{{maltom.parameters[18].values[0]}}"></mat-icon>
+          {{maltom.parameters[12].values[0]}} °</span>
+      <span class="wind">Vindstyrka: {{maltom.parameters[17].values[0]}} m/s
+        <mat-icon class="diricon" svgIcon="28"
+                  style="transform: rotate({{maltom.parameters[16].values[0]}}deg)"></mat-icon> </span>
+    </mat-card-content>
+    <mat-card-footer><span class="footer">Prognos -></span></mat-card-footer>
+  </mat-card>
+  <mat-card class="weather-card" [routerLink]="[umea.geometry.coordinates[0][0], umea.geometry.coordinates[0][1]]">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="place">Umeå</span>
+      </mat-card-title>
+      <span>{{umetom.validTime | date: 'EEEE M/d, H:mm'}}</span>
+    </mat-card-header>
+    <mat-card-content>
+        <span class="degrees">
+        <mat-icon class="weathericon" svgIcon="{{umetom.parameters[18].values[0]}}"></mat-icon>
+          {{umetom.parameters[12].values[0]}} °</span>
+      <span class="wind">Vindstyrka: {{umetom.parameters[17].values[0]}} m/s
+      <mat-icon class="diricon" svgIcon="28"
+                style="transform: rotate({{umetom.parameters[16].values[0]}}deg)"></mat-icon> </span>
+    </mat-card-content>
+    <mat-card-footer><span class="footer">Prognos -></span></mat-card-footer>
+  </mat-card>
+</div>

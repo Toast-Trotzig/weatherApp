@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{town}}</mat-card-title>
+    <span class="weathernow">Vädret nu: </span>
+    <span class="current">
+        <mat-icon svgIcon="{{forecast[0].parameters[18].values[0]}}"></mat-icon>
+      {{forecast[0].parameters[12].values[0]}} °</span>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="14 dagarsrapport">
+        <mat-form-field>
+          <mat-label>Filter in format: M-d</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="month-day (numbers)">
+        </mat-form-field>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+          <ng-container matColumnDef="day">
+            <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
+            <mat-cell *matCellDef="let timeSeries"> {{timeSeries.validTime | date: 'EEEE M/d, H:mm'}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="weather">
+            <mat-header-cell *matHeaderCellDef> Väder </mat-header-cell>
+            <mat-cell *matCellDef="let timeSeries"><mat-icon svgIcon="{{timeSeries.parameters[18].values[0]}}"></mat-icon>{{timeSeries.parameters[12].values[0]}}  °</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="wind">
+            <mat-header-cell *matHeaderCellDef> Vind m/s </mat-header-cell>
+            <mat-cell *matCellDef="let timeSeries"><mat-icon svgIcon="28" style="transform: rotate({{timeSeries.parameters[16].values[0]}}deg)"></mat-icon> {{timeSeries.parameters[17].values[0]}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="rain">
+            <mat-header-cell *matHeaderCellDef> Nederbörd mm</mat-header-cell>
+            <mat-cell *matCellDef="let timeSeries"> {{timeSeries.parameters[8].values[0]}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="humidity">
+            <mat-header-cell *matHeaderCellDef> Luftfuktighet </mat-header-cell>
+            <mat-cell *matCellDef="let timeSeries"> {{timeSeries.parameters[10].values[0]}} %</mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 67]"></mat-paginator>
+      </mat-tab>
+      <mat-tab label="Diagram"><app-chart [charttemp]="tempArray" [chartwind]="windArray" [labels]="labelArray"></app-chart></mat-tab>
+    </mat-tab-group>
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,44 @@
+.weather-cards{
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+}
+
+.weather-card{
+  display: flex;
+  margin-top: 20px;
+  min-width: 300px;
+  flex-direction: column;
+}
+
+.mat-card-content{
+  display: flex;
+  margin: 5px;
+  flex-direction: column;
+}
+
+.wind{
+  margin-top: 20px;
+}
+
+.weathericon {
+  height: 45px;
+  width: 45px;
+}
+
+.diricon {
+  height: 30px;
+  width: 30px;
+}
+
+.degrees {
+  font-size: 50px;
+}
+
+.footer{
+  margin-right: 10px;
+  float: right;
+}
