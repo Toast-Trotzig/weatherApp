@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IForecast, IGeometry, IParameters, ITimeSeries} from '../Models/forecasts';
+import {IForecast, ITimeSeries} from '../Models/forecasts';
 import {UserService} from '../../services/user.service';
 import {formatDate} from '@angular/common';
 @Component({
@@ -19,7 +19,6 @@ export class MainComponent implements OnInit {
   umea: IForecast = {approvedTime: null, referenceTime: null, geometry: null, timeSeries: []};
   umetom: ITimeSeries = {validTime: null, parameters: []};
   time: Date;
-  errorMessage: string;
 
 
   constructor(private userService: UserService) {
