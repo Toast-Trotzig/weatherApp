@@ -50,7 +50,6 @@ export class PlaceComponent implements OnInit {
       for (const temp of this.forecast) {
         temp.parameters.sort((a, b) => a.name.localeCompare(b.name));
       }
-      console.log(this.forecast);
       this.dataSource.data = this.forecast;
 
       for (const temp of this.forecast) {

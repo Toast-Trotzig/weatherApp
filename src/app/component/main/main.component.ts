@@ -42,26 +42,21 @@ export class MainComponent implements OnInit {
       this.stockholm = result;
       this.sortResult(this.stockholm);
       this.stocktom = this.stockholm.timeSeries.find(x => x.validTime.toString() === timestring);
-      console.log(this.stocktom);
-      console.log(this.stockholm);
     });
     this.userService.getGoteborgForecast().subscribe((result: IForecast) => {
       this.goteborg = result;
       this.sortResult(this.goteborg);
       this.gotetom = this.goteborg.timeSeries.find(x => x.validTime.toString() === timestring);
-      console.log(this.goteborg);
     });
     this.userService.getMalmoForecast().subscribe((result: IForecast) => {
       this.malmo = result;
       this.sortResult(this.malmo);
       this.maltom = this.malmo.timeSeries.find(x => x.validTime.toString() === timestring);
-      console.log(this.malmo);
     });
     this.userService.getUmeaForecast().subscribe((result: IForecast) => {
       this.umea = result;
       this.sortResult(this.umea);
       this.umetom = this.umea.timeSeries.find(x => x.validTime.toString() === timestring);
-      console.log(this.umea);
     });
   }
 
