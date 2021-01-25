@@ -18,6 +18,8 @@ export class PlaceComponent implements OnInit {
   windArray: number[] = [];
   labelArray: string[] = [];
   town: string;
+  minDate: Date;
+  maxDate: Date;
 
   displayedColumns: string[] = ['day', 'weather', 'wind', 'rain', 'humidity'];
   dataSource: MatTableDataSource<ITimeSeries> = new MatTableDataSource<ITimeSeries>(this.forecast);
@@ -27,21 +29,24 @@ export class PlaceComponent implements OnInit {
 
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.maxDate.setDate(this.minDate.getDate() + 9);
   }
 
   ngOnInit(): void {
     const lon = this.route.snapshot.paramMap.get('long');
     const lat = this.route.snapshot.paramMap.get('lat');
-    if (lon === '18.040468' && lat === '59.340379') {
+    if (lon === '18.009259' && lat === '58.990745') {
       this.town = 'Stockholm';
     }
-    if (lon === '11.959112' && lat === '57.713651') {
+    if (lon === '11.982345' && lat === '57.989506') {
       this.town = 'Göteborg';
     }
-    if (lon === '13.013801' && lat === '55.609112') {
+    if (lon === '12.992263' && lat === '56.008929') {
       this.town = 'Malmö';
     }
-    if (lon === '20.265917' && lat === '63.833437') {
+    if (lon === '20.009725' && lat === '63.992678') {
       this.town = 'Umeå';
     }
 
@@ -69,14 +74,16 @@ export class PlaceComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  applyDateFilter(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    const filterValue = formatDate(inputValue, 'yyyy-MM-dd', 'en');
+    console.log(filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-
   }
+
 
 }
