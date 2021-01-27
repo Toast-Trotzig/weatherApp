@@ -8,6 +8,7 @@
 }
 
 .big-card {
+  min-width: 300px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -16,6 +17,7 @@
 
 }
 .drop-list {
+  width: 250px;
   margin: 10px;
 }
 
