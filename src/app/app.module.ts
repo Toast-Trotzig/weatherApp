@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
 import { PlaceComponent } from './component/place/place.component';
 import {PlaceGuard} from './component/place/place.guard';
+import { WeathercardComponent } from './component/weathercard/weathercard.component';
 
 const routes: Routes = [
   {path: ':long/:lat', canActivate: [PlaceGuard], component: PlaceComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     AppComponent,
     MainComponent,
     PlaceComponent,
+    WeathercardComponent,
   ],
   imports: [
     BrowserModule,

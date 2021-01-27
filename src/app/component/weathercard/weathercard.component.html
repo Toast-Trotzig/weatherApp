@@ -1,0 +1,19 @@
+<div class="card-container">
+  <mat-card class="weather-card" *ngFor="let forecast of data">
+    <mat-card-title>
+      <span>{{forecast.date | date: 'EEEE'}}</span>
+    </mat-card-title>
+    <mat-card-content>
+      <p>{{forecast.date | date:  'MMMM d'}}</p>
+      <p class="maxtemp">{{forecast.maxTemp}}  °</p>
+      <p class="mintemp"> min {{forecast.minTemp}}  °</p>
+      <mat-icon svgIcon="{{forecast.weathericon}}"></mat-icon>
+      <p>{{forecast.precip}} mm</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <p class="wind">
+        <mat-icon svgIcon="28" style="transform: rotate({{forecast.winddirection}}deg)"></mat-icon> {{forecast.windspeed}} m/s
+      </p>
+    </mat-card-footer>
+  </mat-card>
+</div>
