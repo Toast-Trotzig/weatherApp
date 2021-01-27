@@ -6,7 +6,7 @@
     <mat-card-content>
       <p>{{forecast.date | date:  'MMMM d'}}</p>
       <p class="maxtemp">{{forecast.maxTemp}}  °</p>
-      <p class="mintemp"> min {{forecast.minTemp}}  °</p>
+      <p class="mintemp"> min: {{forecast.minTemp}}  °</p>
       <mat-icon svgIcon="{{forecast.weathericon}}"></mat-icon>
       <p>{{forecast.precip}} mm</p>
     </mat-card-content>
