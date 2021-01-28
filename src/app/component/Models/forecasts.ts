@@ -32,3 +32,9 @@ export interface IWeatherCardData {
   winddirection: number;
   weathericon: number;
 }
+
+export interface IDragndrop {
+  name: string;
+  index: number;
+  id: number;
+}
