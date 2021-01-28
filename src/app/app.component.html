@@ -1,9 +1,11 @@
 <div class="mat-toolbar">
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="home-icon" aria-label="Example icon-button with menu icon" [routerLink]="['home']">
+  <mat-toolbar color="primary" class="nav">
+    <button mat-button class="home-icon" aria-label="Example icon-button with menu icon" [routerLink]="['home']">
       <mat-icon>home</mat-icon>
+      Weather forecast
     </button>
-    <span>Weather Forecast</span>
+    <button mat-button class="nav-content" [routerLink]="['dragndrop']">Drag and drop demo</button>
+
   </mat-toolbar>
 </div>
 <router-outlet></router-outlet>
