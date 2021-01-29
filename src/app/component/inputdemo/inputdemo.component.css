@@ -1,0 +1,53 @@
+
+.main-container {
+  display: flex;
+  align-content: center;
+  place-content: center;
+  margin: 20px;
+}
+
+.maincard-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  min-width: 50%;
+}
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-radio-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  width: 40%;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-footer {
+  display: flex;
+  place-content: center;
+  margin: 20px;
+}
+
+.example-card {
+  width: 50%;
+}
+

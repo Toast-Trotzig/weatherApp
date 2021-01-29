@@ -8,15 +8,18 @@ import {MaterialModule} from './shared/material.module';
 import {Routes, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
 import { PlaceComponent } from './component/place/place.component';
 import {PlaceGuard} from './component/place/place.guard';
 import { WeathercardComponent } from './component/weathercard/weathercard.component';
 import { DragndropComponent } from './component/dragndrop/dragndrop.component';
+import { InputdemoComponent } from './component/inputdemo/inputdemo.component';
 
 const routes: Routes = [
   {path: ':long/:lat', canActivate: [PlaceGuard], component: PlaceComponent},
   {path: 'dragndrop', component: DragndropComponent},
+  {path: 'inputdemo', component: InputdemoComponent},
   {path: '', component: MainComponent},
   {path: '**', redirectTo: ''}
 ];
@@ -28,6 +31,7 @@ const routes: Routes = [
     PlaceComponent,
     WeathercardComponent,
     DragndropComponent,
+    InputdemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ const routes: Routes = [
     MaterialModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    DragDropModule
+    DragDropModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService

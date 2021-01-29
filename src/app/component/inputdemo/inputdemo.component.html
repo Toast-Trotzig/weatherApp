@@ -1,0 +1,57 @@
+<div class="main-container">
+  <mat-card class="mat-elevation-z6 demo-card">
+    <mat-card-title>Input demo</mat-card-title>
+    <mat-card-content class="maincard-content">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="input-content">
+        <mat-form-field class="text-input">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field class="text-input">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+        <p>Type of customer *</p>
+        <mat-radio-group class="radio-input" formControlName="type" color="primary" required>
+          <mat-radio-button value="private">Private</mat-radio-button>
+          <mat-radio-button value="corporate">Corporate</mat-radio-button>
+        </mat-radio-group>
+        <div formGroupName="address" class="address">
+        <mat-form-field appearance="fill" class="text-input">
+          <mat-label>Country</mat-label>
+          <mat-select matNativeControl formControlName="country" required>
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+          <mat-form-field class="text-input">
+            <mat-label>Zip</mat-label>
+            <input matInput formControlName="zip" required>
+          </mat-form-field>
+        </div>
+        <mat-form-field class="text-input">
+          <mat-label>Comment</mat-label>
+          <textarea matInput formControlName="comment"></textarea>
+        </mat-form-field>
+        <section class="checkbox-section">
+          <mat-checkbox color="primary" formControlName="conditions" required>I accept terms & conditions *</mat-checkbox>
+          <mat-checkbox color="primary" formControlName="sublist">I want to be put on the emailing list</mat-checkbox>
+        </section>
+        <button mat-raised-button class="text-input" color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+      </form>
+    </mat-card-content>
+    <mat-card-footer class="input-footer">
+      <mat-card class="example-card">
+        <mat-card-title>{{tmp.name}}</mat-card-title>
+        <mat-card-content>
+          <p>{{tmp.email}}</p>
+          <p>{{tmp.type}}</p>
+          <p>{{tmp.country}}</p>
+          <p>{{tmp.zip}}</p>
+          <p>{{tmp.comment}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-footer>
+  </mat-card>
+</div>
