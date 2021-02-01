@@ -43,11 +43,25 @@
 
 .input-footer {
   display: flex;
-  place-content: center;
-  margin: 20px;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .example-card {
   width: 50%;
+}
+
+.hidden-section {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.clear {
+  margin-top: 10px;
 }
 

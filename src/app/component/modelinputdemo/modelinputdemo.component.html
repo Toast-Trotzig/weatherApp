@@ -1,0 +1,70 @@
+<div class="main-container">
+  <mat-card class="mat-elevation-z6 demo-card">
+    <mat-card-title>Input demo</mat-card-title>
+    <mat-card-content class="maincard-content">
+      <form (ngSubmit)="onSubmit()" #demoForm="ngForm" class="input-content">
+        <mat-form-field class="text-input">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="tmp.name" required name="name">
+        </mat-form-field>
+        <mat-form-field class="text-input">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="tmp.email" name="email" required>
+        </mat-form-field>
+        <p>Type of customer *</p>
+        <mat-radio-group class="radio-input" color="primary" [(ngModel)]="tmp.type" name="type" required>
+          <mat-radio-button value="private">Private</mat-radio-button>
+          <mat-radio-button value="corporate">Corporate</mat-radio-button>
+        </mat-radio-group>
+          <mat-form-field appearance="fill" class="text-input">
+            <mat-label>Country</mat-label>
+            <mat-select matNativeControl [(ngModel)]="tmp.country" name="country" required>
+              <mat-option *ngFor="let country of countries" [value]="country">
+                {{country}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="text-input">
+            <mat-label>Zip</mat-label>
+            <input matInput [(ngModel)]="tmp.zip" name="zip" required>
+          </mat-form-field>
+        <mat-form-field class="text-input">
+          <mat-label>Comment</mat-label>
+          <textarea matInput [(ngModel)]="tmp.comment" name="comment"></textarea>
+        </mat-form-field>
+        <section class="checkbox-section">
+          <mat-checkbox color="primary" [(ngModel)]="tmp.conditions" name="conditions" required>I accept terms & conditions *</mat-checkbox>
+          <mat-checkbox color="primary" [(ngModel)]="tmp.sublist" name="sublist">I want to be put on the emailing list</mat-checkbox>
+        </section>
+        <button mat-raised-button class="text-input" color="primary" [disabled]="!demoForm.form.valid">Submit</button>
+      </form>
+    </mat-card-content>
+    <mat-card-footer class="input-footer">
+      <div class="hidden-section" *ngIf="!submitted === true">
+        <mat-card class="example-card">
+          <mat-card-title>Name: {{tmp.name}}</mat-card-title>
+          <mat-card-content>
+            <p>Email: {{tmp.email}}</p>
+            <p>Type: {{tmp.type}}</p>
+            <p>Country: {{tmp.country}}</p>
+            <p>Zip: {{tmp.zip}}</p>
+            <p>Comment: {{tmp.comment}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="hidden-section" *ngIf="!submitted === false">
+      <mat-card class="example-card">
+        <mat-card-title>Name: {{submittedperson.name}}</mat-card-title>
+        <mat-card-content>
+          <p>Email: {{submittedperson.email}}</p>
+          <p>Type: {{submittedperson.type}}</p>
+          <p>Country: {{submittedperson.country}}</p>
+          <p>Zip: {{submittedperson.zip}}</p>
+          <p>Comment: {{submittedperson.comment}}</p>
+        </mat-card-content>
+      </mat-card>
+      <h1 class="clear">Form submitted <button mat-raised-button color="primary" (click)="onClear()">Clear submit</button></h1>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
