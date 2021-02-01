@@ -46,8 +46,8 @@ export class InputdemoComponent implements OnInit {
     this.tmp.name = this.profileForm.value.name;
     this.tmp.email = this.profileForm.value.email;
     this.tmp.type = this.profileForm.value.type;
-    this.tmp.country = this.profileForm.value.country;
-    this.tmp.zip = this.profileForm.value.zip;
+    this.tmp.country = this.profileForm.value.address.country;
+    this.tmp.zip = this.profileForm.value.address.zip;
     this.tmp.comment = this.profileForm.value.comment;
     this.tmp.conditions = this.profileForm.value.conditions;
     this.tmp.sublist = this.profileForm.value.sublist;

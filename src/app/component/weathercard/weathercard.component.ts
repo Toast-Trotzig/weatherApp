@@ -25,7 +25,7 @@ export class WeathercardComponent implements OnInit {
   }
 
   sortParams(array: ITimeSeries[], param: number): ITimeSeries[] {
-    array.sort(((a, b) => a.parameters[param].values[0].toLocaleString().localeCompare(b.parameters[param].values[0].toLocaleString())));
+    array.sort(((a, b) => b.parameters[param].values[0] - a.parameters[param].values[0]));
     return array;
   }
 
@@ -45,14 +45,12 @@ export class WeathercardComponent implements OnInit {
       temp.maxTemp = this.tempforecast[0].parameters[12].values[0];
       temp.weathericon = this.tempforecast[0].parameters[18].values[0];
       temp.date = this.tempforecast[0].validTime;
-      let array = this.tempforecast.reverse();
+      const array = this.tempforecast.reverse();
       temp.minTemp = array[0].parameters[12].values[0];
       this.sortParams(array, 17);
-      array = array.reverse();
       temp.windspeed = array[0].parameters[17].values[0];
       temp.winddirection = array[0].parameters[16].values[0];
       this.sortParams(array, 8);
-      array = array.reverse();
       temp.precip = array[0].parameters[8].values[0];
       this.data.push(temp);
       mintime = new Date(mintime.setDate(mintime.getDate() + 1));
